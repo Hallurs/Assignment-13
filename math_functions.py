@@ -50,34 +50,37 @@ def approximate_euler(n_str):
 option = 0
 while option != 'x':
     print("Please choose one of the options below:")
-    print("a. Display the sum of the first N natural numbers.")
-    print("b. Display the sum of the first N Fibonacci numbers.")
+    print("a. Display the sum of the first N natural numbers. ")
+    print("b. Display the sum of the first N Fibonacci numbers. ")
     print("c. Display the approximate value of e using N terms.")
     print("x. Exit from the program.")
     print()
     option = input("Enter option: ")
-    if option == 'a':
-        N = input("Enter N: ")
-        result = sum_natural(N)
-        if result == None:
-            print("{} was not a valid number.".format(N))
+    while option != 0:
+        if option == 'a':
+            N = input("Enter N: ")
+            result = sum_natural(N)
+            if result == None:
+                print("Error: {} was not a valid number.".format(N))
+            else:
+                print("Natural number sum: {}".format(result))
+        elif option == 'b':
+            N = input("Enter N: ")
+            result = sum_fibonacci(N)
+            if result == None:
+                print("Error: {} was not a valid number.".format(N))
+            else:
+                print("Fibonacci sum: {}".format(result))
+        elif option == 'c':
+            N = input("Enter N: ")
+            result = approximate_euler(N)
+            if result == None:
+                print("Error: {} was not a valid number.".format(N))
+            else:
+                print("Euler approximation: {:.5f}".format(result)
+        elif option == 'x':
+            break
         else:
-            print("Natural number sum : {}".format(result))
-    elif option == 'b':
-        N = input("Enter N: ")
-        result = sum_fibonacci(N)
-        if result == None:
-            print("{} was not a valid number.".format(N))
-        else:
-            print("Fibonacci sum: {}".format(result))
-    elif option == 'c':
-        N = input("Enter N: ")
-        result = approximate_euler(N)
-        if result == None:
-            print("{} was not a valid number.".format(N))
-        else:
-            print("Euler approximation: {:.5f}".format(result))
-    elif option == 'x':
-        break
-    else:
-        print("Unrecognized option",option)
+            print("Unrecognized option",option)
+            break
+        option = input("Enter option: ")
