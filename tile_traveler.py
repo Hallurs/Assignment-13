@@ -78,8 +78,6 @@ def pull_leaver(coin):
         coin += 1
         print("You received 1 coin, your total is now {}.".format(coin))
     return coin
-def play_again():
-
 # The main program starts here
 
 def main():
@@ -96,5 +94,7 @@ def main():
 main()
 play = 'y'
 while play != 'n':
-    main()
     play = input("Play again (y/n): ").lower()
+    if play == 'n':
+        break
+    main()
