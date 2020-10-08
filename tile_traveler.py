@@ -77,19 +77,24 @@ def pull_leaver(coin):
     if answer == 'y':
         coin += 1
         print("You received 1 coin, your total is now {}.".format(coin))
-    else: 
-        return 0
     return coin
+def play_again():
 
 # The main program starts here
-victory = False
-row = 1
-col = 1
-coin = 0
-while not victory:
-    valid_directions = find_directions(col, row)
-    print_directions(valid_directions)
-    victory, col, row, coin = play_one_move(col, row, valid_directions, coin)
 
-print("Victory!", end=' ')
-print('Total coins {}'.format(coin))
+def main():
+    victory = False
+    row = 1
+    col = 1
+    coin = 0
+    while not victory:
+        valid_directions = find_directions(col, row)
+        print_directions(valid_directions)
+        victory, col, row, coin = play_one_move(col, row, valid_directions, coin)
+    print("Victory!", end=' ')
+    print('Total coins {}.'.format(coin))
+main()
+play = 'y'
+while play != 'n':
+    main()
+    play = input("Play again (y/n): ").lower()
